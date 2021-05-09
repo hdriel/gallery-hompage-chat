@@ -1,0 +1,17 @@
+.chat-message {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+
+  .sender{
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .msg {
+    padding-left: 5px;
+    font-size: 12px;
+  }
+}
