@@ -1,25 +1,30 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import Routes from '../screens';
-import { Provider } from 'react-redux';
+import {Provider, useDispatch} from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import socketIOClient from "socket.io-client";
+import * as chatActions from '../store/actions/chat';
 
 import store, { persistor } from '../store/index';
-import {ENDPOINT, EVENTS} from "../utils/consts";
+import {closeSocket, getSocket} from "../utils";
+
+const ResetUsername = props => {
+    const dispatch = useDispatch();
+    useEffect(() => { dispatch(chatActions.updateUsername('')) });
+    return props.children;
+}
 
 function App() {
     useEffect(() => {
-        const socket = socketIOClient(ENDPOINT);
-        const userId = `User${Math.floor(Math.random() * 1000000)}`;
-        socket.emit(EVENTS.CONNECTING, userId);
-
-        return ( ) => { socket.emit(EVENTS.DISCONNECTING); }
+        getSocket();
+        return () => closeSocket();
     }, []);
 
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>
-                <Routes />
+                <ResetUsername>
+                    <Routes />
+                </ResetUsername>
             </PersistGate>
         </Provider>
     );

@@ -7,7 +7,6 @@ const initialState = {
 
 
 export default function imageReducer(state = initialState, action){
-
     switch (action.type){
         case FETCH_IMAGES:
             return {
@@ -24,5 +23,4 @@ export default function imageReducer(state = initialState, action){
         default:
             return state;
     }
-
 }

@@ -1,0 +1,61 @@
+// aaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccddddddddddddddddddddddddeeeeeeeeeeeeeeffffffffffffffffffffffffggggggggggggggggggghhhhhhhhhhhhhhhhhhhiiiiiiiiiiiiiiiiiiiiiijjjjjjjjjjjjjjkkkkkkkkkkkkllllllllllmmmmmmmmmmmooooooooooppppppppppqqqqqqqqqqqrrrrrrrrrrrrrsssssssssssssssssssstttttttttttuuuuuuuuuuuvvvvvvvvvwwwwwwwwwwxxxxxxxxxxxxxxxyyyyyyyyyyyyyzzzzzzzzzzzzzzzzz
+.chat-message {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 3px;
+  flex-direction: column;
+
+  .msg-time{
+    display: none;
+  }
+
+  &:hover{
+    border-top: 1px dashed gray;
+    padding-top: 10px;
+
+    .msg-time{
+      display: flex;
+      justify-content: center;
+      width: inherit;
+    }
+  }
+
+  & > span {
+    justify-content: start;
+    display: flex;
+    width: inherit;
+
+
+    .sender{
+      font-weight: bold;
+      font-size: 1rem;
+      height: 100%;
+    }
+
+    .msg {
+      padding-left: 5px;
+      font-size: 0.9rem;
+      word-break: break-word;
+      height: 100%;
+    }
+  }
+}
+
+.chat-header-title {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > span {
+    cursor: pointer;
+    font-size: 14px;
+    float: right;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

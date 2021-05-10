@@ -2,16 +2,20 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
+  "author": "Hadriel Benjo",
+  "license": "ISC",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
+    "faker": "^5.5.3",
     "http": "^0.0.1-security",
     "socket.io": "^4.0.2"
   },
-  "devDependencies": {},
-  "scripts": {
-    "start": "node app.js"
-  },
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
 }

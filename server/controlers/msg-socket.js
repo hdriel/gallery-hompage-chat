@@ -13,27 +13,39 @@ module.exports = function messageSocketServer(server){
     const activeUsers = new Set();
 
     io.on("connection", function (socket) {
-        console.log("Made socket connection");
+        console.log("Made socket connection ", socket.id);
 
-        socket.on(EVENTS.CONNECTING, function (data) {
-            socket.userId = data;
-            activeUsers.add(data);
-            io.emit(EVENTS.CONNECTING, [...activeUsers]);
+        socket.on(EVENTS.CONNECTING, function ({prevUsername = '', username}, callbackFn) {
+            if(activeUsers.has(username)){
+                console.log(`'${username}' already exists`);
+                callbackFn(false)
+            }
+            else {
+                socket.userId = username;
+                activeUsers.delete(prevUsername);
+                activeUsers.add(username);
+                callbackFn(true);
+                console.log(`'${socket.userId}' joined`);
+                io.emit(EVENTS.CONNECTED_USERS, [...activeUsers]);
+            }
         });
 
         socket.on(EVENTS.DISCONNECTING, () => {
             activeUsers.delete(socket.userId);
-            io.emit("user disconnected", socket.userId);
+            console.log(`'${socket.userId}' left`);
+            io.emit(EVENTS.CONNECTED_USERS, [...activeUsers]);
         });
 
         socket.on(EVENTS.SEND_MESSAGE, function (data) {
-            console.log("CHAT-MESSAGE: ", data);
-            io.emit(EVENTS.SEND_MESSAGE, data);
-        });
+            const { message, username, imageId } = data;
+            console.log(`[${imageId}] '${username}' send: ${message}`);
 
-        socket.on(EVENTS.TYPING, function (data) {
-            console.log("TYPING: ", data);
-            socket.broadcast.emit(EVENTS.TYPING, data);
+            io.emit(EVENTS.SEND_MESSAGE, {
+                date: Date.now(),
+                message,
+                username,
+                imageId,
+            });
         });
     });
 }
