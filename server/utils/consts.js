@@ -4,3 +4,5 @@ module.exports.EVENTS = {
     SEND_MESSAGE: 'SEND-MESSAGE',
     CONNECTED_USERS: 'CONNECTED_USERS',
 }
+
+module.exports.IMAGE_AMOUNT = 8;

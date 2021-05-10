@@ -6,7 +6,9 @@
   "license": "ISC",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "install": "npm install && cd ../client && npm install",
+    "start:server": "node app.js",
+    "start:client": "cd ../client && npm start",
     "dev": "nodemon app.js"
   },
   "dependencies": {

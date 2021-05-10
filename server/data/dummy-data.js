@@ -1,24 +1,25 @@
+/*
 const faker = require('faker');
+const { IMAGE_AMOUNT } = require('../utils/consts');
 
-if(true){
-    const FAKER_IMAGES = new Array(8).fill('').map(_ => ({
-        id: faker.datatype.uuid(),
-        title: faker.commerce.productName(), // faker.lorem.words(2)
-        author: faker.internet.userName(),
-        description: faker.lorem.sentences(),
-        uri: faker.image.image(),
-        metadata: {
-            resolution: faker.random.float(),
-            weight: faker.random.float(),
-            width: faker.random.number(),
-            height: faker.random.number(),
-            location: `{ lat: ${faker.address.latitude()}, lng: ${faker.address.longitude()} }`,
-            type: faker.datatype.number(),
-            tags: new Array(faker.random.number(7)).fill('').map(i => faker.lorem.word()),
-        }
-    }));
-    console.log(JSON.stringify(FAKER_IMAGES, null, 4));
-}
+const FAKER_IMAGES = new Array(IMAGE_AMOUNT).fill('').map(_ => ({
+    id: faker.datatype.uuid(),
+    title: faker.commerce.productName(), // faker.lorem.words(2)
+    author: faker.internet.userName(),
+    description: faker.lorem.sentences(),
+    uri: faker.image.image(),
+    metadata: {
+        resolution: faker.random.float(),
+        weight: faker.random.float(),
+        width: faker.random.number(),
+        height: faker.random.number(),
+        location: `{ lat: ${faker.address.latitude()}, lng: ${faker.address.longitude()} }`,
+        type: faker.datatype.number(),
+        tags: new Array(faker.random.number(7)).fill('').map(i => faker.lorem.word()),
+    }
+}));
+console.log(JSON.stringify(FAKER_IMAGES, null, 4));
+*/
 
 module.exports.IMAGES = [
     {

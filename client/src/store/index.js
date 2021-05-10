@@ -9,8 +9,8 @@ import settingsReducer from './reducers/settings';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['image', 'settings'],
-    blacklist: ['chat']
+    whitelist: ['image', 'settings', 'chat'],
+    blacklist: []
 }
 
 const rootReducer = combineReducers({

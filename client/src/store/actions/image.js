@@ -35,7 +35,7 @@ export const fetchImages = () => {
 
 export const filterImagesBySearchValue = (value = '') => {
     return (dispatch, getState) => {
-        const imageList = getState().image.imageList.filter(image => image.title.includes(value));
+        const imageList = getState().image.imageList.filter(image => image.title.includes(value) || image.author.includes(value));
 
         return dispatch({
             type: FILTERED_IMAGES,
