@@ -1,71 +1,203 @@
 const faker = require('faker');
 
-if(false){
+if(true){
     const FAKER_IMAGES = new Array(8).fill('').map(_ => ({
         id: faker.datatype.uuid(),
         title: faker.commerce.productName(), // faker.lorem.words(2)
         author: faker.internet.userName(),
         description: faker.lorem.sentences(),
         uri: faker.image.image(),
+        metadata: {
+            resolution: faker.random.float(),
+            weight: faker.random.float(),
+            width: faker.random.number(),
+            height: faker.random.number(),
+            location: `{ lat: ${faker.address.latitude()}, lng: ${faker.address.longitude()} }`,
+            type: faker.datatype.number(),
+            tags: new Array(faker.random.number(7)).fill('').map(i => faker.lorem.word()),
+        }
     }));
     console.log(JSON.stringify(FAKER_IMAGES, null, 4));
 }
 
 module.exports.IMAGES = [
     {
-        "id":"f7127bb7-0e1e-4ff1-8b42-09ff69a41394",
-        "title":"Gorgeous Plastic Hat",
-        "author":"Kelli81",
-        "description":"Ut quia labore et optio. Repellat et quaerat quia perferendis eos asperiores quia. Inventore excepturi sint possimus ut dolorum. Dicta velit harum tempora soluta.",
-        "uri":"http://placeimg.com/640/480?random=737"
+        "id": "fee2e70a-4fe1-430a-8347-f8259a01477f",
+        "title": "Small Concrete Cheese",
+        "author": "Layne.Mueller",
+        "description": "Qui cum repudiandae itaque nisi voluptatem repellendus. Quo aperiam eos quasi et sequi fugit. Cumque vel officia iure incidunt.",
+        "uri": "http://placeimg.com/640/480/nightlife",
+        "metadata": {
+            "resolution": 17169.44,
+            "weight": 19940.32,
+            "width": 48881,
+            "height": 99264,
+            "location": "{ lat: -65.5997, lng: 98.1393 }",
+            "type": 54482,
+            "tags": []
+        }
     },
     {
-        "id":"94f06c75-03d2-4b1f-a28c-1364ca0df267",
-        "title":"Tasty Metal Computer",
-        "author":"Darren.Orn17",
-        "description":"Saepe et sequi non repellat et et sint. Est quia incidunt maxime dolorem ut totam et et dolorem. Et repellat corrupti sed delectus doloremque aut nemo. Aut delectus deleniti et aliquam ut sit eum et. Sequi labore non velit totam exercitationem accusantium sint molestiae. Minima repudiandae sint optio ut nisi.",
-        "uri":"http://placeimg.com/640/480?random=713"
+        "id": "9ca11514-6bc2-40f6-b866-cdd435a8d51a",
+        "title": "Handcrafted Granite Chair",
+        "author": "Tomasa55",
+        "description": "Autem vel et magnam architecto dolore sunt qui culpa. Molestias quod qui et molestiae necessitatibus iste voluptas et sit. Aut alias deserunt debitis inventore corporis autem quis qui. Omnis similique labore.",
+        "uri": "http://placeimg.com/640/480/business",
+        "metadata": {
+            "resolution": 56293.24,
+            "weight": 38806.4,
+            "width": 10050,
+            "height": 45096,
+            "location": "{ lat: 50.0317, lng: -110.2811 }",
+            "type": 45707,
+            "tags": [
+                "iure",
+                "vel",
+                "dolore",
+                "inventore",
+                "delectus"
+            ]
+        }
     },
     {
-        "id":"065af437-a4bd-4fc2-8497-d8d706a9b2e1",
-        "title":"Tasty Soft Chicken",
-        "author":"Erwin.Haley25",
-        "description":"Expedita veritatis deleniti. Aut illo sint veniam ipsa quidem. Veniam incidunt alias est. Et omnis consequuntur hic enim. Laboriosam possimus eos fugit reprehenderit est inventore unde.",
-        "uri":"http://placeimg.com/640/480?random=274"
+        "id": "cccf227a-4b44-4a3b-b23e-168e92accbd3",
+        "title": "Rustic Rubber Towels",
+        "author": "Arjun_Parisian",
+        "description": "Adipisci mollitia amet harum quia officiis harum. Distinctio perspiciatis doloribus optio tenetur. Voluptatem est possimus consequatur.",
+        "uri": "http://placeimg.com/640/480/people",
+        "metadata": {
+            "resolution": 60658.37,
+            "weight": 46314.43,
+            "width": 26090,
+            "height": 81052,
+            "location": "{ lat: -79.5905, lng: -81.8843 }",
+            "type": 36850,
+            "tags": [
+                "libero",
+                "aliquid",
+                "asperiores",
+                "minima",
+                "delectus",
+                "at"
+            ]
+        }
     },
     {
-        "id":"d9d212ee-9afc-4416-9ed6-692d8efe7b91",
-        "title":"Handmade Wooden Towels",
-        "author":"Eulalia_Larkin",
-        "description":"Expedita ab voluptatem perferendis commodi cupiditate dolorem dolorem blanditiis. Fugiat excepturi nesciunt possimus nulla. Laudantium et quia delectus fugiat quo corporis dolorem.",
-        "uri":"http://placeimg.com/640/480?random=889"
+        "id": "65c0cb47-6854-465b-ad7b-94a1b861a7dd",
+        "title": "Ergonomic Rubber Cheese",
+        "author": "Jettie_Crist",
+        "description": "Incidunt vero voluptatum voluptate excepturi iste harum ratione unde magni. Vero quo perferendis consequatur enim consequatur. Iste enim harum suscipit at necessitatibus cum quam. Voluptatibus magnam quaerat consequatur quo minus iste. Id illo inventore qui qui est. Voluptatem repudiandae commodi ea eum sapiente.",
+        "uri": "http://placeimg.com/640/480/transport",
+        "metadata": {
+            "resolution": 7690.6,
+            "weight": 10034.37,
+            "width": 36243,
+            "height": 83342,
+            "location": "{ lat: 20.9880, lng: 37.6173 }",
+            "type": 10932,
+            "tags": [
+                "commodi",
+                "dolorem",
+                "et",
+                "facere",
+                "non",
+                "earum",
+                "et"
+            ]
+        }
     },
     {
-        "id":"6bedc5f2-f1de-4a33-94d2-b9d16f702a73",
-        "title":"Tasty Plastic Hat",
-        "author":"Hans_Rippin35",
-        "description":"Magnam explicabo labore officiis et non dolorum vero natus sapiente. Voluptatibus soluta impedit ipsam modi. Eaque nostrum assumenda alias reiciendis harum debitis. Consectetur et sit. Atque ducimus dolor culpa qui ut. Asperiores qui amet.",
-        "uri":"http://placeimg.com/640/480?random=486"
+        "id": "59985708-8323-416e-9414-d6d0f83fe27e",
+        "title": "Licensed Concrete Ball",
+        "author": "Wilhelm.Sipes",
+        "description": "Maiores dolorem aliquam consequatur animi suscipit odit numquam. Mollitia id est alias et animi fugit amet. Eos iusto consequatur non. Quaerat dolorum incidunt sed in numquam velit natus. Dignissimos dolorem fugiat.",
+        "uri": "http://placeimg.com/640/480/technics",
+        "metadata": {
+            "resolution": 93788.41,
+            "weight": 80487.24,
+            "width": 95261,
+            "height": 89554,
+            "location": "{ lat: -36.7072, lng: 102.6605 }",
+            "type": 24980,
+            "tags": [
+                "fuga",
+                "libero",
+                "libero",
+                "non",
+                "quia",
+                "eos",
+                "cum"
+            ]
+        }
     },
     {
-        "id":"b366f81b-8b60-4251-a759-ffa7728036e6",
-        "title":"Fantastic Frozen Pants",
-        "author":"Destiney9",
-        "description":"Sint adipisci maiores corrupti similique praesentium nam omnis. Unde veniam nesciunt culpa. Molestiae eos earum occaecati omnis repudiandae blanditiis illum rerum.",
-        "uri":"http://placeimg.com/640/480?random=395"
+        "id": "c77769e1-4482-44fb-8147-81b6dfcd0a0a",
+        "title": "Ergonomic Plastic Car",
+        "author": "Axel.Schimmel",
+        "description": "Corporis voluptas et accusantium ad. Sit ut ipsum.",
+        "uri": "http://placeimg.com/640/480/food",
+        "metadata": {
+            "resolution": 78689.85,
+            "weight": 32533.11,
+            "width": 75181,
+            "height": 79808,
+            "location": "{ lat: -9.5676, lng: 120.4312 }",
+            "type": 59747,
+            "tags": [
+                "quod",
+                "sed",
+                "dolor",
+                "at",
+                "aut",
+                "necessitatibus"
+            ]
+        }
     },
     {
-        "id":"1754594a-6e68-4e36-bdd6-4bd37a694d27",
-        "title":"Unbranded Metal Car",
-        "author":"Kaitlin86",
-        "description":"Ut vitae sunt quasi enim. Voluptatem ut harum et eveniet maxime laudantium quia aut. Ut sint sapiente ducimus eum odio. Neque porro temporibus tempora praesentium.",
-        "uri":"http://placeimg.com/640/480?random=243"
+        "id": "3104ba9b-d023-4d46-872c-640d3ba58042",
+        "title": "Intelligent Fresh Car",
+        "author": "Waldo_Barrows",
+        "description": "Quia modi qui nam ducimus perspiciatis dolore aperiam perspiciatis saepe. Saepe minima magni quis distinctio illum ut molestiae.",
+        "uri": "http://placeimg.com/640/480/food",
+        "metadata": {
+            "resolution": 57633.03,
+            "weight": 69856.06,
+            "width": 85719,
+            "height": 90105,
+            "location": "{ lat: -6.6448, lng: 59.3837 }",
+            "type": 25574,
+            "tags": [
+                "et",
+                "corrupti",
+                "non",
+                "aut",
+                "est",
+                "consequuntur"
+            ]
+        }
     },
     {
-        "id":"129c0b5f-e04a-4609-bf8b-f3aa6b01e878",
-        "title":"Incredible Plastic Table",
-        "author":"Jaycee.Mitchell",
-        "description":"Exercitationem occaecati et esse laboriosam numquam tenetur aspernatur. Nihil aperiam soluta ducimus quas autem libero deserunt eaque.",
-        "uri":"http://placeimg.com/640/480?random=526"
+        "id": "e19d5937-2403-43a0-9a46-4890350c724b",
+        "title": "Handcrafted Soft Gloves",
+        "author": "Iva.Wunsch54",
+        "description": "Rem deleniti et qui enim. Tempora non dolorum sapiente nobis facere consequatur laudantium dolor corrupti. A nisi sunt maxime a error quibusdam labore ipsam.",
+        "uri": "http://placeimg.com/640/480/business",
+        "metadata": {
+            "resolution": 20728.97,
+            "weight": 89323.78,
+            "width": 46924,
+            "height": 18148,
+            "location": "{ lat: 13.1056, lng: -19.6354 }",
+            "type": 24645,
+            "tags": [
+                "nostrum",
+                "dicta",
+                "atque",
+                "ipsam",
+                "vel",
+                "sed",
+                "deleniti"
+            ]
+        }
     }
 ]

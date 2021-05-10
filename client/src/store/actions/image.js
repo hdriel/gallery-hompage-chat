@@ -23,6 +23,7 @@ export const fetchImages = () => {
                 author: image.author,
                 description: image.description,
                 url: image.uri,
+                metadata: image.metadata
             })
         );
 
